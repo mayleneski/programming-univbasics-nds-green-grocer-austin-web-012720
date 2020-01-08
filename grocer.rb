@@ -1,7 +1,8 @@
+require 'pry'
 
 def find_item_by_name_in_collection(name, collection)
   #Implement me first!
-  
+
   i = 0
   
   while i < collection.length do
@@ -25,16 +26,11 @@ def consolidate_cart(cart)
     if item_match
       item_match[:count] += 1
     else
-      item_match = {
-        :item => cart[i][:item],
-        :price => cart[i][:price],
-        :clearance => cart[i][:clearance],
-        :count => 1
-      }
-      new_cart << item_match
+      cart[i][:count] = 1
+      new_cart << cart[i]
     end  
     i += 1
-  end  
+  end 
   new_cart
 end
 
